@@ -1,13 +1,13 @@
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RootLayout from "../src/layout/RootLayout.jsx";
-import TopSection from "../src/pages/TopSection.jsx";
+import MembersPage from "../src/pages/MembersPage.jsx";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route element={<RootLayout />}>
-          <Route path="/" element={<TopSection />} />
+          <Route path="/" element={<MembersPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
