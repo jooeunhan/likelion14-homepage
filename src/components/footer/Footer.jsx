@@ -10,6 +10,7 @@ const FooterContainer = styled.div`
   width: 100%;
   padding: 40px 32px;
   box-sizing: border-box;
+  background-color: #FAFBF8;
 `;
 
 const LeftSection = styled.div`
