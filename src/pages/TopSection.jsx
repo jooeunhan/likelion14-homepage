@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import Button from "../components/common/Button.jsx";
 
 const Container = styled.div`
   display: flex;
@@ -69,28 +70,8 @@ const ButtonGroup = styled.div`
   gap: 18px;
 `;
 
-const Button = styled.div`
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  color: #1A1A1A;
-  font-family: Pretendard;
-  font-size: 18px;
-  font-weight: 500;
-  height: 44px;
-  min-width: 92px;
-  padding: 8px 23px;
-  border: 1px solid #1A1A1A;
-  background-color: #FFFFFF;
-  cursor: pointer;
-  box-sizing: border-box;
-  ${props => props.$active && `
-    border: 2px solid #1A1A1A;
-    background-color: #C6E400;
-  `}
-`;
-
 export default function TopSection() {
+  // 상태(useState)는 컨트롤러 역할을 해야 하므로 큰 형님인 TopSection이 꽉 쥐고 있습니다.
   const [activeGeneration, setActiveGeneration] = useState("14기");
   const generations = ["14기", "13기", "12기", "11기"];
 
@@ -105,6 +86,7 @@ export default function TopSection() {
             <Dot $bottom $left />
             <Dot $bottom $right />
           </TitleBox>
+
           <Description>
             서경대학교 멋쟁이사자처럼의 구성원들을 살펴보세요.
           </Description>
