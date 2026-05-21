@@ -10,6 +10,7 @@ const Container = styled.div`
   padding: 76px 57px 0px 57px;
   align-self: stretch;
   box-sizing: border-box;
+  background-color: #FAFBF8;
 `;
 
 const InnerSection = styled.div`
@@ -70,9 +71,7 @@ const ButtonGroup = styled.div`
   gap: 18px;
 `;
 
-export default function TopSection() {
-  // 상태(useState)는 컨트롤러 역할을 해야 하므로 큰 형님인 TopSection이 꽉 쥐고 있습니다.
-  const [activeGeneration, setActiveGeneration] = useState("14기");
+export default function TopSection({ activeGeneration, setActiveGeneration }) {
   const generations = ["14기", "13기", "12기", "11기"];
 
   return (
@@ -92,13 +91,13 @@ export default function TopSection() {
           </Description>
           
           <ButtonGroup>
-            {generations.map((gen) => (
+            {generations.map((generation) => (
               <Button
-                key={gen}
-                $active={activeGeneration === gen}
-                onClick={() => setActiveGeneration(gen)}
+                key={generation}
+                $active={activeGeneration === generation}
+                onClick={() => setActiveGeneration(generation)}
               >
-                {gen}
+                {generation}
               </Button>
             ))}
           </ButtonGroup>

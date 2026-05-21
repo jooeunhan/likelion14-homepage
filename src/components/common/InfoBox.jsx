@@ -12,7 +12,7 @@ const CardContainer = styled.div`
 const ImageWrapper = styled.div`
   width: 100%;
   aspect-ratio: 1 / 1;
-  background-color: #F9F9F9s;
+  background-color: #F9F9F9;
   display: flex;
   justify-content: center;
   align-items: center;
