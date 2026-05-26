@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import homeUrl from "../../assets/icons/skull_icon.svg";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -36,6 +37,7 @@ const MainTitle = styled.span`
   font-size: 22px;
   font-family: Pretendard, sans-serif;
   font-weight: 700;
+  cursor: pointer;
 `;
 
 const RightSection = styled.div`
@@ -54,12 +56,16 @@ const MenuContainer = styled.div`
   box-sizing: border-box;
 `;
 
-const Menubutton = styled.div`
+const Menubutton = styled.button`
+  background: none;
+  border: none;
+  padding: 0;
   color: #1A1A1A;
   font-size: 18px;
   font-family: Pretendard;
   font-weight: 600;
   cursor: pointer;
+  position: relative;
 `;
 
 const LoginContainer = styled.div`
@@ -73,22 +79,54 @@ const LoginContainer = styled.div`
 `;
 
 export default function Header() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
+
   return (
     <HeaderContainer>
       <TitleContainer>
         <HomeIcon src={homeUrl} alt="home" />
-        <MainTitle>멋쟁이사자처럼 서경대학교</MainTitle>
+        <MainTitle
+          onClick={() => handleNavigation("/")}
+          $isActive={location.pathname === "/"}
+        >
+          멋쟁이사자처럼 서경대학교
+        </MainTitle>
       </TitleContainer>
 
       <RightSection>
         <MenuContainer>
-          <Menubutton>지원하기</Menubutton>
-          <Menubutton>프로젝트</Menubutton>
-          <Menubutton>구성원</Menubutton>
+          <Menubutton
+            onClick={() => handleNavigation("/recruit")}
+            $isActive={location.pathname === "/recruit"}
+          >
+            지원하기
+          </Menubutton>
+          <Menubutton
+            onClick={() => handleNavigation("/project")}
+            $isActive={location.pathname === "/project"}
+          >
+            프로젝트
+          </Menubutton>
+          <Menubutton
+            onClick={() => handleNavigation("/members")}
+            $isActive={location.pathname === "/members"}
+          >
+            구성원
+          </Menubutton>
         </MenuContainer>
 
         <LoginContainer>
-          <Menubutton>로그인/회원가입</Menubutton>
+          <Menubutton
+            onClick={() => handleNavigation("/login")}
+            $isActive={location.pathname === "/login"}
+          >
+            로그인/회원가입
+          </Menubutton>
         </LoginContainer>
       </RightSection>
     </HeaderContainer>
